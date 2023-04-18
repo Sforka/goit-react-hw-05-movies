@@ -1,0 +1,10 @@
+.movieDetails {
+  display: flex;
+align-items: center;
+  gap: 20px;
+  margin: 10px;
+
+}
+.movieInfo {
+  margin: 10px;
+}
