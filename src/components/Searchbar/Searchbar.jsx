@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from 'components/Searchbar/Searchbar.module.css';
 
-export function SearchBar({ onSubmit }) {
+export function SearchBar({value, onSubmit }) {
   const [search, setSearch] = useState('')
   
+  useEffect(() => {
+    setSearch(value)
+  },[])
 
   const valueChange = event => {
     setSearch(event.currentTarget.value.toLowerCase());
@@ -19,7 +22,13 @@ export function SearchBar({ onSubmit }) {
           toast.error('write correct name');
             setSearch('');
             return
-        }
+      }
+       if (search === value) {
+         toast.warn(
+           'This request has already been found, please try another quary'
+         );
+         return
+       }
             onSubmit(search)
   }
   
