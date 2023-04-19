@@ -1,4 +1,4 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 const Home = lazy(() => import('../page/Home'))
 const Movies = lazy(() => import('../page/Movie'));
@@ -22,7 +22,7 @@ export const App = () => {
             <Route path="/movies/:movieId/cast" element={<Cast />} />
             <Route path="/movies/:movieId/reviews" element={<Reviews />} />
           </Route>
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>
     </div>
