@@ -8,8 +8,8 @@ export function SearchBar({value, onSubmit }) {
   const [search, setSearch] = useState('')
   
   useEffect(() => {
-    setSearch(value)
-  },[])
+    setSearch(value);
+  }, [value]);
 
   const valueChange = event => {
     setSearch(event.currentTarget.value.toLowerCase());
